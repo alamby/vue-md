@@ -1,7 +1,7 @@
 /**
  * 代码高亮
  */
-// hljs.initHighlightingOnLoad();
+//hljs.initHighlightingOnLoad();
 
 /**
  * 页面滚动
@@ -15,14 +15,14 @@ $('[data-scroll]').on('click', function(e){
 });
 
 /**
- * 图片占位符
+ * 图片占位符,注释掉了holder.min.js
  */
-Holder.addTheme("gray", {
-  bg: "#BCBEC0",
-  fg: "rgba(255, 255, 255, 1)",
-  size: 12,
-  fontweight: "normal"
-});
+// Holder.addTheme("gray", {
+//   bg: "#BCBEC0",
+//   fg: "rgba(255, 255, 255, 1)",
+//   size: 12,
+//   fontweight: "normal"
+// });
 
 /**
  * 处理示例

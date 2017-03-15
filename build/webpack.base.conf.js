@@ -1,6 +1,7 @@
+var webpack = require('webpack')
 var path = require('path')
-var utils = require('./utils')
 var config = require('../config')
+var utils = require('./utils')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -23,6 +24,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'jquery': 'jquery'
     }
   },
   module: {
@@ -35,7 +37,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test')],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -54,5 +61,11 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery"
+    })
+  ]
 }
